@@ -90,12 +90,15 @@ def handleProductDetail(_url, _category):
     time.sleep(1)
 
     try:
-        title = chrome_driver_instance.find_element(By.XPATH, "//h1[@class='productView-title']/span").text
+        title = chrome_driver_instance.find_element(By.XPATH, "//h1[@class='productView-title']"
+                                                              "/span").text
     except Exception as e:
         print(e.__str__())
 
     try:
-        price = chrome_driver_instance.find_element(By.XPATH, "//div[contains(@class, 'productView-price')]/div").text
+        price = chrome_driver_instance.find_element(By.XPATH,
+                                                    "//div[contains(@class, 'productView-price')]"
+                                                    "//div[@class='price__sale']//span").text
     except Exception as e:
         print(e.__str__())
 
