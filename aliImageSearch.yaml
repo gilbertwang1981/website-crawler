@@ -1,0 +1,8 @@
+aliImageSearch:
+  port: 10018
+  prod: 1
+  # cookieDir: '/Users/gilbert/vendor-info/'
+  cookieDir: '/opt/apps/kp-1688-search/'
+  users:
+    - 'tq02h2a_gb1981'
+    - '17620848116'

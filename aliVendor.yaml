@@ -1,0 +1,18 @@
+aliVendor:
+  db:
+    host: 192.168.8.12
+    port: 13306
+    user: root
+    pass: KPqazxsw
+    dbName: kp_sk_sync
+  ali:
+    # user: '17620848116'
+    user: 'tq02h2a_gb1981'
+    # user: '18565086913'
+    # user: '15876578981'
+    cookieDir: '/Users/gilbert/vendor-info/'
+    categoryUrl: 'https://show.1688.com/pinlei/industry/pllist.html?spm=a260j.12536134.jr60bfo3.2.6ca576d2a6u31A&&sceneSetId=839&sceneId=6682&bizId=9404&adsSearchWord=%E6%B0%B4%E5%BD%A9%E7%AC%94'
+    categoryOne: '办公文教'
+    categoryThree: '水彩笔'
+    offset: 30
+    begin: 60

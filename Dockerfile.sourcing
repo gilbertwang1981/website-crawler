@@ -1,0 +1,53 @@
+FROM docker.io/python:3.8-slim-bullseye
+
+LABEL maintainer=kp-1688-sourcing
+
+RUN mkdir -p /opt/apps/kp-1688-sourcing
+
+WORKDIR /opt/apps/kp-1688-sourcing
+
+RUN apt-get update
+RUN apt-get install xvfb -y
+RUN apt-get install tightvncserver -y
+RUN apt-get install net-tools -y
+RUN apt-get install libnss3 -y
+RUN apt-get install dbus -y
+RUN apt-get install libatk1.0-0 -y
+RUN apt-get install libatk-bridge2.0-0 -y
+RUN apt-get install cups -y
+RUN apt-get install libdrm2 -y
+RUN apt-get install libxcomposite1 -y
+RUN apt-get install libxdamage1 -y
+RUN apt-get install libxfixes-dev -y
+RUN apt-get install libxrandr2 -y
+RUN apt-get install libgbm-dev -y
+RUN apt-get install libxkbcommon0 -y
+RUN apt-get install libasound2 -y
+RUN apt-get install wget -y
+RUN apt-get install libpango-1.0 -y
+
+COPY ProductSourcingService.py /opt/apps/kp-1688-sourcing
+COPY SourcingProduct.py /opt/apps/kp-1688-sourcing
+COPY test.png /tmp/
+
+COPY chrome/chromedriver-linux64/chromedriver /opt/ansible/ansible/
+
+RUN cd /opt
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg --unpack google-chrome-stable_current_amd64.deb
+
+RUN /usr/local/bin/pip3 install flask
+RUN /usr/local/bin/pip3 install selenium
+RUN /usr/local/bin/pip3 install fastapi
+RUN /usr/local/bin/pip3 install uvicorn
+RUN /usr/local/bin/pip3 install flask_cors
+RUN /usr/local/bin/pip3 install pyautogui
+RUN /usr/local/bin/pip3 install python3-xlib
+RUN /usr/local/bin/pip3 install requests
+
+# 手动
+# 1. apt-get install python3-tk -y
+# 2. export USER=root
+# 3. vncserver
+# 4. export DISPLAY=:1
+# 5. nohup /usr/local/bin/python3 ProductSourcingService.py &

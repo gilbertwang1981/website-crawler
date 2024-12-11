@@ -1,0 +1,12 @@
+aliWangWang:
+  port: 10015
+  prod: 0
+  count: 50
+  users:
+    - 'tq02h2a_gb1981'
+    # - '18565086913'
+    # - '15876578981'
+    # - '17620848116'
+  wechatHook: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=bda14df6-be9b-4064-8623-94799fd1bbf1'
+  # cookieDir: '/opt/apps/kp-aliWangWang-chat/'
+  cookieDir: '/Users/gilbert/vendor-info/'
