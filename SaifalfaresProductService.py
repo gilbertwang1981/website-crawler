@@ -84,23 +84,39 @@ def insert(_description, _category, _title, _image, _price):
             _connection.close()
 
 
-def handleProductDetail(_url):
+def handleProductDetail(_url, _category):
     chrome_driver_instance.get(_url)
 
-    time.sleep(2)
+    time.sleep(1)
 
-    title = chrome_driver_instance.find_element(By.XPATH, "//h1[@class='productView-title']/span").text
-    print(title)
+    try:
+        title = chrome_driver_instance.find_element(By.XPATH, "//h1[@class='productView-title']/span").text
+    except Exception as e:
+        print(e.__str__())
 
-    price = chrome_driver_instance.find_element(By.XPATH, "//div[contains(@class, 'productView-price')]/div").text
-    print(price)
+    try:
+        price = chrome_driver_instance.find_element(By.XPATH, "//div[contains(@class, 'productView-price')]/div").text
+    except Exception as e:
+        print(e.__str__())
 
-    description = chrome_driver_instance.find_element(By.XPATH, "//div[@id='tab-description-mobile']").text
-    print(description)
+    try:
+        description = chrome_driver_instance.find_element(By.XPATH, "//div[@id='tab-description-mobile']").text
+    except Exception as e:
+        print(e.__str__())
 
-    images = chrome_driver_instance.find_elements(By.XPATH, "//div[contains(@class, 'productView-image')]//img")
-    for image in images:
-        print(image.get_attribute('src'))
+    try:
+        images = chrome_driver_instance.find_elements(By.XPATH, "//div[contains(@class, 'productView-image')]//img")
+        urls = []
+        for image in images:
+            s = image.get_attribute('src')
+            if s:
+                urls.append(s[:s.find('?')])
+
+        imageUrls = ','.join(urls)
+    except Exception as e:
+        print(e.__str__())
+
+    insert(description, _category, title, imageUrls, price)
 
 
 def listProducts(_url, _userName, _category):
@@ -128,7 +144,7 @@ def listProducts(_url, _userName, _category):
 
         index = 0
         for productDetailUrl in detailUrls:
-            handleProductDetail(productDetailUrl)
+            handleProductDetail(productDetailUrl, _category)
             index = index + 1
 
     except Exception as e:
