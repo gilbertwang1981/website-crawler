@@ -15,6 +15,8 @@
 | 3    | https://www.fakhruddinsouq.com/ |
 | 4    | https://hajsabbagh.ae/ |
 | 5    | https://victorwatch.com/ |
+| 6    | https://salmansaffron.com |
+| 7    | https://hajsabbagh.ae/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
