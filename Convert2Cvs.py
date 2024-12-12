@@ -34,7 +34,7 @@ def cleanUrls(urls):
     for url in url_list:
         if url.startswith('//'):
             url = 'https:' + url
-            for suffix in ['.jpg', '.jpeg', '.png', '.gif']:
+            for suffix in ['.jpg', '.jpeg', '.png', '.gif', '.webp']:
                 index = url.find(suffix)
                 if index != -1:
                     url = url[:index + len(suffix)]
