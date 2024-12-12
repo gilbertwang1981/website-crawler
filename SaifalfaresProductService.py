@@ -99,6 +99,10 @@ def handleProductDetail(_url, _category):
         price = chrome_driver_instance.find_element(By.XPATH,
                                                     "//div[contains(@class, 'productView-price')]"
                                                     "//div[@class='price__sale']//span").text
+        if not price:
+            price = chrome_driver_instance.find_element(By.XPATH,
+                                                        "//div[contains(@class, 'productView-price')]"
+                                                        "//div[@class='price__regular']//span").text
     except Exception as e:
         print(e.__str__())
 
