@@ -120,6 +120,8 @@ def scrapyProductDetail(_url):
 def traverseProductList(url, page):
     chrome_driver_instance.get(url + "page/" + str(page) + "/")
 
+    print(url + "page/" + str(page) + "/")
+
     time.sleep(1)
 
     detailUrls = chrome_driver_instance.find_elements(By.XPATH, "//ul[contains(@class, 'product')]"
@@ -130,10 +132,10 @@ def traverseProductList(url, page):
         if "add-to-cart" not in detailUrl.get_attribute('href'):
             urls.append(detailUrl.get_attribute('href'))
 
-    for url in urls:
-        scrapyProductDetail(url)
+    for _url in urls:
+        scrapyProductDetail(_url)
 
-    if len(detailUrls) < 20:
+    if len(urls) < 20:
         return
 
     traverseProductList(url, page + 1)
