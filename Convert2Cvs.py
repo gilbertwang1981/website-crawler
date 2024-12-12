@@ -7,7 +7,7 @@ db_port = 13306
 db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
-db_table = 'smartberry_product_scrapy'
+db_table = 'victorwatch_product_scrapy'
 
 page_size = 100
 offset = 0
@@ -48,7 +48,7 @@ try:
     with connection.cursor() as cursor:
         while True:
             sql = f"""
-            SELECT title, description, images, category, price   
+            SELECT title, price, images, category    
             FROM {db_table} where id > {pid}  
             LIMIT {offset}, {page_size}
             """
@@ -62,8 +62,8 @@ try:
             for row in result:
                 # URL 解码 title 和 description
                 row['title'] = unquote(row['title'])
-                row['description'] = unquote(row['description'])
-                # row['price'] = row['price'].split(' ')[1]
+                # row['description'] = unquote(row['description'])
+                row['price'] = row['price'].split(' ')[1]
                 row['category'] = row['category']
                 # row['sku'] = row['sku']
 
@@ -80,7 +80,7 @@ finally:
     connection.close()
 
 # 导出到CSV
-output_file = 'smartberry_product_scrapy.csv'
+output_file = 'victorwatch_product_scrapy.csv'
 df.to_csv(output_file, index=False, encoding='utf-8-sig')
 
 print(f"Data exported to {output_file} successfully.")
