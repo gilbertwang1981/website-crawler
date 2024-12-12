@@ -17,6 +17,7 @@
 | 5    | https://victorwatch.com/ |
 | 6    | https://salmansaffron.com |
 | 7    | https://hajsabbagh.ae/ |
+| 8    | https://www.jamshidramin.com/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
