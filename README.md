@@ -13,6 +13,8 @@
 | 1    | https://saifalfares.com/        |
 | 2    | https://https://jubilee.ae/     |
 | 3    | https://www.fakhruddinsouq.com/ |
+| 4    | https://hajsabbagh.ae/ |
+| 5    | https://victorwatch.com/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
