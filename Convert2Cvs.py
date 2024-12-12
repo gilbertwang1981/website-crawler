@@ -7,7 +7,7 @@ db_port = 13306
 db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
-db_table = 'salmansaffron_product_scrapy'
+db_table = 'jamshidramin_product_scrapy'
 
 page_size = 100
 offset = 0
@@ -48,7 +48,7 @@ try:
     with connection.cursor() as cursor:
         while True:
             sql = f"""
-            SELECT title, price, images, category, description   
+            SELECT title, images, category, description   
             FROM {db_table} where id > {pid}  
             LIMIT {offset}, {page_size}
             """
@@ -64,7 +64,7 @@ try:
                 row['title'] = unquote(row['title'])
                 row['description'] = unquote(row['description'])
                 # row['price'] = row['price'].split(' ')[1]
-                row['price'] = row['price']
+                # row['price'] = row['price']
                 row['category'] = row['category']
                 # row['sku'] = row['sku']
 
@@ -81,7 +81,7 @@ finally:
     connection.close()
 
 # 导出到CSV
-output_file = 'salmansaffron_product_scrapy.csv'
+output_file = 'jamshidramin_product_scrapy.csv'
 df.to_csv(output_file, index=False, encoding='utf-8-sig')
 
 print(f"Data exported to {output_file} successfully.")
