@@ -1,0 +1,11 @@
+smartberry:
+  initUrl: 'https://smartberry.com.cn/products'
+  category: 'smartberry'
+  totalPages: 3
+  begin: 1
+  db:
+    host: 192.168.8.12
+    port: 13306
+    user: root
+    pass: KPqazxsw
+    dbName: kp_sk_sync

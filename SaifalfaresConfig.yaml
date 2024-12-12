@@ -1,9 +1,9 @@
 saifalfares:
   userName: 'wanghan52@126.com'
   cookieDir: '/Users/gilbert/saifalfares/'
-  initUrl: 'https://saifalfares.com/collections/perfume'
-  category: 'perfume'
-  totalPages: 1
+  initUrl: 'https://saifalfares.com/collections/under-30'
+  category: 'under-30'
+  totalPages: 4
   begin: 1
   db:
     host: 192.168.8.12
