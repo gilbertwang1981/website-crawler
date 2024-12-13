@@ -5,7 +5,6 @@ from selenium import webdriver
 from urllib.parse import quote
 
 import CommonScrapyConfig
-from AtcacarScrapy import AtcacarScrapy
 
 chrome_driver_instance = None
 
@@ -20,6 +19,9 @@ def getDatabaseConnection():
 
     return mysqlConnection
 
+
+def getProductListPageSize():
+    return CommonScrapyConfig.commonScrapyConfig['scrapy']['pageSize']
 
 def insert(_category, _title, _image, _description, _price):
     try:
@@ -86,8 +88,10 @@ def scrapyProductDetail(_url, scrapy):
     insert(category, title, imageUrl, description, price)
 
 
-def traverseProductList(url, scrapy):
-    chrome_driver_instance.get(url)
+def traverseProductList(url, scrapy, page, pageSize):
+    print("READY TO SCRAPY - " + url + "page/" + str(page))
+
+    chrome_driver_instance.get(url + "page/" + str(page))
 
     time.sleep(1)
 
@@ -96,11 +100,16 @@ def traverseProductList(url, scrapy):
     for _url in urls:
         scrapyProductDetail(_url, scrapy)
 
+    if len(urls) < pageSize:
+        return
 
-def listProducts(scrapy):
+    traverseProductList(url, scrapy, page + 1, pageSize)
+
+
+def listProducts(scrapy, pageSize):
     categories = listCategories(scrapy)
     for category in categories:
-        traverseProductList(category, scrapy)
+        traverseProductList(category, scrapy, 1, pageSize)
 
 
 def getChromeDriver():

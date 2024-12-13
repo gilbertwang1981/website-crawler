@@ -1,6 +1,7 @@
 scrapy:
-  initUrl: 'https://shop.atcacar.com/'
+  initUrl: 'https://shop.atcacar.com/shop/'
   category: 'atcacar'
+  pageSize: 35
   db:
     host: 192.168.8.12
     port: 13306
