@@ -23,6 +23,7 @@ def getDatabaseConnection():
 def getProductListPageSize():
     return CommonScrapyConfig.commonScrapyConfig['scrapy']['pageSize']
 
+
 def insert(_category, _title, _image, _description, _price):
     try:
         _connection = getDatabaseConnection()
@@ -85,13 +86,16 @@ def scrapyProductDetail(_url, scrapy):
     price = detail['price']
     category = CommonScrapyConfig.commonScrapyConfig['scrapy']['category']
 
-    insert(category, title, imageUrl, description, price)
+    if not title:
+        print("关键字段(标题)为空不插入，可能正在被风控。")
+    else:
+        insert(category, title, imageUrl, description, price)
 
 
 def traverseProductList(url, scrapy, page, pageSize):
-    print("READY TO SCRAPY - " + url + "page/" + str(page))
+    print("READY TO SCRAPY - " + url + "page/" + str(page) + "/")
 
-    chrome_driver_instance.get(url + "page/" + str(page))
+    chrome_driver_instance.get(url + "page/" + str(page) + "/")
 
     time.sleep(1)
 
@@ -110,10 +114,6 @@ def listProducts(scrapy, pageSize):
     categories = listCategories(scrapy)
     for category in categories:
         traverseProductList(category, scrapy, 1, pageSize)
-
-
-def getChromeDriver():
-    return chrome_driver_instance
 
 
 def closeChromeDriver():
