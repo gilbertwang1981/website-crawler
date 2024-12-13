@@ -16,7 +16,10 @@ class RiiffsperfumesScrapy(CommonScrapy):
                                                                                   "//a")
         urls = []
         for detail in details:
-            urls.append(detail.get_attribute('href'))
+            if 'add-to-cart' in detail.get_attribute('href'):
+                pass
+            else:
+                urls.append(detail.get_attribute('href'))
 
         return urls
 
@@ -44,10 +47,7 @@ class RiiffsperfumesScrapy(CommonScrapy):
                                                                                      "//div[@data-thumb]")
             for image in images:
                 img = image.get_attribute('data-thumb')
-                if 'add-to-cart' in img:
-                    pass
-                else:
-                    imageUrls.append(img)
+                imageUrls.append(img)
 
         except Exception as e:
             print(e.__str__())
