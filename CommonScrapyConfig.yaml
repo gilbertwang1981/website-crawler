@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'https://shop.atcacar.com/shop/'
-  category: 'atcacar'
-  pageSize: 35
+  initUrl: 'https://www.riiffsperfumes.com/shop/'
+  category: 'riiffsperfumes'
+  pageSize: 12
   db:
     host: 192.168.8.12
     port: 13306
