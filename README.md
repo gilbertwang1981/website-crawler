@@ -19,6 +19,7 @@
 | 7    | https://hajsabbagh.ae/ |
 | 8    | https://www.jamshidramin.com/ |
 | 9    | https://shop.atcacar.com/ |
+| 10   | https://www.riiffsperfumes.com/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
