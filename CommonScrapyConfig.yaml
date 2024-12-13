@@ -1,8 +1,8 @@
 scrapy:
-  initUrl: 'https://www.riiffsperfumes.com/shop/'
-  category: 'riiffsperfumes'
+  initUrl: 'http://www.rippleorbit.com/sv_complex.aspx?nid=8'
+  category: 'rippleorbit'
   pageSize: 12
-  pageSchema: 'page/'
+  pageSchema: '&page='
   db:
     host: 192.168.8.12
     port: 13306

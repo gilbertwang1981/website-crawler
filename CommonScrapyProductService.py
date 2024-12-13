@@ -103,12 +103,12 @@ def traverseProductList(url, scrapy, page, pageSize):
 
     time.sleep(1)
 
-    urls = scrapy.getProductDetailByList()
+    _urls = scrapy.getProductDetailByList()
 
-    for _url in urls:
+    for _url in _urls:
         scrapyProductDetail(_url, scrapy)
 
-    if len(urls) < pageSize:
+    if len(_urls) < pageSize:
         return
 
     traverseProductList(url, scrapy, page + 1, pageSize)

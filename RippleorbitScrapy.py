@@ -6,30 +6,19 @@ from selenium.webdriver.common.by import By
 class RippleorbitScrapy(CommonScrapy):
 
     def getProductListByCategories(self):
-        # categories = CommonScrapyProductService. \
-        #     chrome_driver_instance.find_elements(By.XPATH,
-        #                                          "//ul[@class='xg_tMenuUl1']/li")
-        # urls = []
-        # for category in categories:
-        #     categoryId = category.get_attribute('data-tid')
-        #     urls.append("http://www.rippleorbit.com/sv.aspx?nid=8&typeid=" + str(categoryId))
-
-        # return urls
-
         return ['http://www.rippleorbit.com/sv_complex.aspx?nid=8']
 
     def getProductDetailByList(self):
         details = CommonScrapyProductService. \
             chrome_driver_instance.find_elements(By.XPATH,
-                                                 "//div[contains(@class, "
-                                                 "'xg_content')]"
-                                                 "//div[contains(@class, 'data_row')]"
-                                                 "//a")
-        urls = []
+                                                 "//div[@id='idccf372c42914471']"
+                                                 "//div[contains(@class, 'data_col')]"
+                                                 "//a[1]")
+        urls = set([])
         for detail in details:
-            urls.append(detail.get_attribute('href'))
+            urls.add(detail.get_attribute('href'))
 
-        return list(set(urls))
+        return list(urls)
 
     def getProductDetail(self):
         title = ''
