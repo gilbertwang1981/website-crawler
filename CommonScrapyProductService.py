@@ -93,9 +93,13 @@ def scrapyProductDetail(_url, scrapy):
 
 
 def traverseProductList(url, scrapy, page, pageSize):
-    print("READY TO SCRAPY - " + url + "page/" + str(page) + "/")
+    schema = CommonScrapyConfig.commonScrapyConfig['scrapy']['pageSchema']
 
-    chrome_driver_instance.get(url + "page/" + str(page) + "/")
+    targetUrl = url + schema + str(page)
+
+    print("READY TO SCRAPY - " + targetUrl)
+
+    chrome_driver_instance.get(targetUrl)
 
     time.sleep(1)
 
