@@ -11,13 +11,14 @@
 | 编号 | 站点                            |
 | ---- | ------------------------------- |
 | 1    | https://saifalfares.com/        |
-| 2    | https://https://jubilee.ae/     |
+| 2    | https://jubilee.ae/     |
 | 3    | https://www.fakhruddinsouq.com/ |
 | 4    | https://hajsabbagh.ae/ |
 | 5    | https://victorwatch.com/ |
 | 6    | https://salmansaffron.com |
 | 7    | https://hajsabbagh.ae/ |
 | 8    | https://www.jamshidramin.com/ |
+| 9    | https://shop.atcacar.com/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
