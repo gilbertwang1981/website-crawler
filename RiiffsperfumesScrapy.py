@@ -11,15 +11,12 @@ class RiiffsperfumesScrapy(CommonScrapy):
     def getProductDetailByList(self):
         details = CommonScrapyProductService.chrome_driver_instance.find_elements(By.XPATH,
                                                                                   "//li[contains(@class, 'product')]"
-                                                                                  "//div[@class='product_item--info']"
+                                                                                  "//div[@class='product_item"
+                                                                                  "--thumbnail'] "
                                                                                   "//a")
         urls = []
         for detail in details:
-            pd = detail.get_attribute('href')
-            if 'add-to-cart' in pd:
-                pass
-            else:
-                urls.append(pd)
+            urls.append(detail.get_attribute('href'))
 
         return urls
 
@@ -47,7 +44,10 @@ class RiiffsperfumesScrapy(CommonScrapy):
                                                                                      "//div[@data-thumb]")
             for image in images:
                 img = image.get_attribute('data-thumb')
-                imageUrls.append(img)
+                if 'add-to-cart' in img:
+                    pass
+                else:
+                    imageUrls.append(img)
 
         except Exception as e:
             print(e.__str__())
