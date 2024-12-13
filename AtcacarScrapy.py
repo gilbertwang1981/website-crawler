@@ -17,7 +17,7 @@ class AtcacarScrapy(CommonScrapy):
 
     def getProductDetailByList(self):
         details = self.chrome.find_elements(By.XPATH, "//div[contains(@class, 'porto-tb-item')]"
-                                            "//div[contains(@class, 'product-list-content')]/a")
+                                                      "//div[contains(@class, 'product-list-content')]/a")
         urls = []
         for detail in details:
             urls.append(detail.get_attribute('href'))
@@ -25,11 +25,36 @@ class AtcacarScrapy(CommonScrapy):
         return urls
 
     def getProductDetail(self):
+        title = ''
+        try:
+            title = self.chrome.find_element(By.XPATH, "//h2[contains(@class, 'product_title')]").text
+        except Exception as e:
+            e.__str__()
+
+        description = ''
+        try:
+            description = self.chrome.find_element(By.XPATH, "//div[@id='tab-description']").text
+        except Exception as e:
+            e.__str__()
+
+        imageUrls = []
+        try:
+            images = self.chrome.find_elements(By.XPATH, "//div[contains(@class, 'product-image-slider')]"
+                                                         "//div[@class='img-thumbnail']"
+                                                         "//img")
+            for image in images:
+                img = image.get_attribute('src')
+                img = img[:img.find('?')]
+                imageUrls.append(img)
+
+        except Exception as e:
+            e.__str__()
+
         return {
-            'description': 'test description',
-            'title': 'this is a product',
-            'price': '10',
-            'image': 'xxxx'
+            'description': description,
+            'title': title,
+            'price': '',
+            'image': ','.join(imageUrls)
         }
 
 
