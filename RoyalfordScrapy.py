@@ -57,8 +57,16 @@ class RoyalfordScrapy(CommonScrapy):
                 find_elements(By.XPATH, "//div[@class='flex-viewport']"
                                         "//div[@data-thumb]"
                                         "/a")
-            for image in images:
-                imageUrls.append(image.get_attribute('href'))
+
+            if images:
+                for image in images:
+                    imageUrls.append(image.get_attribute('href'))
+            else:
+                images = CommonScrapyProductService.chrome_driver_instance. \
+                    find_element(By.XPATH, "//div[contains(@class, 'woocommerce-product-gallery')]"
+                                           "//div[@data-thumb]"
+                                           "/a")
+                imageUrls.append(images.get_attribute('href'))
 
         except Exception as e:
             e.__str__()
