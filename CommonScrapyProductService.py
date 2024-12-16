@@ -117,8 +117,9 @@ def traverseProductList(url, scrapy, page, pageSize):
 
 def listProducts(scrapy, pageSize):
     categories = listCategories(scrapy)
+    begin = CommonScrapyConfig.commonScrapyConfig['scrapy']['beginPage']
     for category in categories:
-        traverseProductList(category, scrapy, 1, pageSize)
+        traverseProductList(category, scrapy, begin, pageSize)
 
 
 def closeChromeDriver():
