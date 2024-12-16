@@ -1,8 +1,8 @@
 scrapy:
-  initUrl: 'http://www.rippleorbit.com/sv_complex.aspx?nid=8'
-  category: 'rippleorbit'
-  pageSize: 12
-  pageSchema: '&page='
+  initUrl: 'https://afs.ae/'
+  category: 'afs'
+  pageSize: 40
+  pageSchema: 'page/'
   db:
     host: 192.168.8.12
     port: 13306

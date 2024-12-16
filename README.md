@@ -21,6 +21,7 @@
 | 9    | https://shop.atcacar.com/ |
 | 10   | https://www.riiffsperfumes.com/ |
 | 11   | http://www.rippleorbit.com/ |
+| 12   | https://afs.ae/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
