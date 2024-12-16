@@ -2,7 +2,7 @@ scrapy:
   initUrl: 'https://royalford.ae/'
   category: 'royalford'
   pageSize: 12
-  pageSchema: 'page/'
+  pageSchema: '?product-page='
   db:
     host: 192.168.8.12
     port: 13306
