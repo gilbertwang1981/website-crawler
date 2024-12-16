@@ -51,7 +51,7 @@ try:
     with connection.cursor() as cursor:
         while True:
             sql = f"""
-            SELECT title, images, category, description     
+            SELECT title, images, category, description, sku      
             FROM common_product_scrapy where id > {pid} and category = '{category}'  
             LIMIT {offset}, {page_size}
             """
@@ -69,7 +69,7 @@ try:
                 # row['price'] = row['price'].split(' ')[1]
                 # row['price'] = row['price']
                 row['category'] = row['category']
-                # row['sku'] = row['sku']
+                row['sku'] = row['sku']
 
                 # 处理 images 字段
                 row["images"] = cleanUrls(row["images"])
