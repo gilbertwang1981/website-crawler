@@ -45,16 +45,12 @@ class AfsScrapy(CommonScrapy):
         imageUrls = []
         try:
             images = CommonScrapyProductService.chrome_driver_instance. \
-                find_element(By.XPATH,
-                             "//div[@class='woocommerce-product-gallery__wrapper'] "
-                             "//a/img").get_attribute('srcset')
-            if not images:
-                images = CommonScrapyProductService.chrome_driver_instance. \
-                    find_element(By.XPATH,
-                                 "//div[@class='woocommerce-product-gallery__wrapper'] "
-                                 "//a/img").get_attribute('src')
-            for im in images.split(','):
-                imageUrls.append(im.strip().split(' ')[0])
+                find_elements(By.XPATH,
+                              "//div[contains(@class, 'woocommerce-product-gallery--with-images')]"
+                              "//div[@class='woocommerce-product-gallery__wrapper']"
+                              "/div/a")
+            for im in images:
+                imageUrls.append(im.get_attribute('href'))
 
         except Exception as e:
             print(e.__str__())
