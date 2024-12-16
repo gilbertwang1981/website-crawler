@@ -63,7 +63,8 @@ class RippleorbitScrapy(CommonScrapy):
             'description': description,
             'title': title,
             'price': "",
-            'image': productImages
+            'image': productImages,
+            'sku': ''
         }
 
 

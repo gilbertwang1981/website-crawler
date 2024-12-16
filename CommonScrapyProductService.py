@@ -24,15 +24,15 @@ def getProductListPageSize():
     return CommonScrapyConfig.commonScrapyConfig['scrapy']['pageSize']
 
 
-def insert(_category, _title, _image, _description, _price):
+def insert(_category, _title, _image, _description, _price, _sku):
     try:
         _connection = getDatabaseConnection()
 
         _cursor = _connection.cursor()
 
-        _cursor.execute("insert into common_product_scrapy(title, images, category, description, price) "
+        _cursor.execute("insert into common_product_scrapy(title, images, category, description, price, sku) "
                         "values ('" + quote(_title) + "', '"
-                        + _image + "', '" + _category + "', '" + quote(_description) + "', '" + _price + "')")
+                        + _image + "', '" + _category + "', '" + quote(_description) + "', '" + _price + "', '" + _sku + "')")
 
         _connection.commit()
 
@@ -85,11 +85,12 @@ def scrapyProductDetail(_url, scrapy):
     imageUrl = detail['image']
     price = detail['price']
     category = CommonScrapyConfig.commonScrapyConfig['scrapy']['category']
+    sku = detail['sku']
 
     if not title:
         print("关键字段(标题)为空不插入，可能正在被风控。")
     else:
-        insert(category, title, imageUrl, description, price)
+        insert(category, title, imageUrl, description, price, sku)
 
 
 def traverseProductList(url, scrapy, page, pageSize):

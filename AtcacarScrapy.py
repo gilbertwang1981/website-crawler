@@ -61,7 +61,8 @@ class AtcacarScrapy(CommonScrapy):
             'description': description,
             'title': title,
             'price': '',
-            'image': ','.join(imageUrls)
+            'image': ','.join(imageUrls),
+            'sku': ''
         }
 
 

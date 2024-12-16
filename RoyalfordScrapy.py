@@ -3,11 +3,11 @@ from CommonScrapy import CommonScrapy
 from selenium.webdriver.common.by import By
 
 
-class AfsScrapy(CommonScrapy):
+class RoyalfordScrapy(CommonScrapy):
 
     def getProductListByCategories(self):
-        categories = CommonScrapyProductService.chrome_driver_instance. \
-            find_elements(By.XPATH, "//ul[@id='menu-1-f4f1773']/li/a")
+        categories = CommonScrapyProductService.chrome_driver_instance.\
+            find_elements(By.XPATH, "//li[contains(@class, 'level-0')]/a")
 
         categoryUrls = []
         for category in categories:
@@ -17,40 +17,45 @@ class AfsScrapy(CommonScrapy):
 
     def getProductDetailByList(self):
         details = CommonScrapyProductService.chrome_driver_instance. \
-            find_elements(By.XPATH, "//li[@id='productCard']/div/a")
-
-        detailUrls = []
+            find_elements(By.XPATH, "//div[@class='product-content']//a[@class='product-image']")
+        urls = []
         for detail in details:
-            detailUrls.append(detail.get_attribute('href'))
-        return list(set(detailUrls))
+            urls.append(detail.get_attribute('href'))
+
+        return urls
 
     def getProductDetail(self):
         title = ''
         try:
             title = CommonScrapyProductService.chrome_driver_instance. \
                 find_element(By.XPATH,
-                             "//h1[contains(@class, "
+                             "//h2[contains(@class, "
                              "'product_title')]").text
         except Exception as e:
             print(e.__str__())
 
         description = ''
         try:
-            description = CommonScrapyProductService.chrome_driver_instance. \
-                find_element(By.XPATH,
-                             "//div[@class='woocommerce-product-details__short-description']/ul").text
+            description = CommonScrapyProductService.chrome_driver_instance.\
+                find_element(By.XPATH, "//div[@class='woocommerce-product-details__short-description']").text
+        except Exception as e:
+            print(e.__str__())
+
+        sku = ''
+        try:
+            sku = CommonScrapyProductService.chrome_driver_instance.\
+                find_element(By.XPATH, "//div[@class='woolentor_product_sku_info']/span[@class='sku']").text
         except Exception as e:
             print(e.__str__())
 
         imageUrls = []
         try:
-            images = CommonScrapyProductService.chrome_driver_instance. \
-                find_elements(By.XPATH,
-                              "//div[contains(@class, 'woocommerce-product-gallery--with-images')]"
-                              "//div[@class='woocommerce-product-gallery__wrapper']"
-                              "/div/a")
-            for im in images:
-                imageUrls.append(im.get_attribute('href'))
+            images = CommonScrapyProductService.chrome_driver_instance.\
+                find_elements(By.XPATH, "//div[@class='flex-viewport']"
+                                        "//div[@data-thumb]"
+                                        "/a")
+            for image in images:
+                imageUrls.append(image.get_attribute('href'))
 
         except Exception as e:
             print(e.__str__())
@@ -60,7 +65,7 @@ class AfsScrapy(CommonScrapy):
             'title': title,
             'price': '',
             'image': ','.join(imageUrls),
-            'sku': ''
+            'sku': sku
         }
 
 
@@ -68,7 +73,7 @@ if __name__ == '__main__':
     CommonScrapyProductService.createChromeDriver()
 
     CommonScrapyProductService.listProducts(
-        AfsScrapy(),
+        RoyalfordScrapy(),
         CommonScrapyProductService.getProductListPageSize())
 
     CommonScrapyProductService.closeChromeDriver()

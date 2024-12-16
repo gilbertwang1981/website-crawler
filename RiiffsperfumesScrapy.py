@@ -63,7 +63,8 @@ class RiiffsperfumesScrapy(CommonScrapy):
             'description': description,
             'title': title,
             'price': price,
-            'image': ','.join(imageUrls)
+            'image': ','.join(imageUrls),
+            'sku': ''
         }
 
 
