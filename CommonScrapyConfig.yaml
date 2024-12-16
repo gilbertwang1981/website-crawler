@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'https://afs.ae/'
-  category: 'afs'
-  pageSize: 40
+  initUrl: 'https://maat.ae/'
+  category: 'maat'
+  pageSize: 32
   pageSchema: 'page/'
   db:
     host: 192.168.8.12
