@@ -87,7 +87,7 @@ def scrapyProductDetail(_url, scrapy):
     category = CommonScrapyConfig.commonScrapyConfig['scrapy']['category']
     sku = detail['sku']
 
-    if not title:
+    if not title or not imageUrl:
         print("关键字段(标题)为空不插入，可能正在被风控。")
     else:
         insert(category, title, imageUrl, description, price, sku)

@@ -14,9 +14,9 @@ class RoyalfordScrapy(CommonScrapy):
         for category in categories:
             categoryUrls.append(category.get_attribute('href'))
 
-        # return categoryUrls[0]
+        return categoryUrls
 
-        return ['https://royalford.ae/product-category/table-ware/']
+        # return ['https://royalford.ae/product-category/outdoor/']
 
     def getProductDetailByList(self):
         details = CommonScrapyProductService.chrome_driver_instance. \
