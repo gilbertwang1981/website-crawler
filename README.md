@@ -25,6 +25,7 @@
 | 13   | https://maat.ae/ |
 | 14   | https://royalford.ae/ |
 | 15   | https://sevenwonder.ae/ |
+| 16   | https://rbwtoy.com |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
