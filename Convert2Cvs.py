@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'royalford'
+category = 'rbwtoy'
 db_table = category + '_product_scrapy'
 
 
@@ -51,7 +51,7 @@ try:
     with connection.cursor() as cursor:
         while True:
             sql = f"""
-            SELECT title, images, category, description, sku      
+            SELECT title, images, category, description, price , sku      
             FROM common_product_scrapy where id > {pid} and category = '{category}'  
             LIMIT {offset}, {page_size}
             """
@@ -67,6 +67,7 @@ try:
                 row['title'] = unquote(row['title'])
                 row['description'] = unquote(row['description'])
                 # row['price'] = row['price'].split(' ')[1]
+                row['price'] = row['price'][3:]
                 # row['price'] = row['price']
                 row['category'] = row['category']
                 row['sku'] = row['sku']

@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'https://sevenwonder.ae/'
-  category: 'sevenwonder'
-  pageSize: 5000
+  initUrl: 'https://rbwtoy.com/'
+  category: 'rbwtoy'
+  pageSize: 15
   beginPage: 1
   pageSchema: '?page='
   db:
