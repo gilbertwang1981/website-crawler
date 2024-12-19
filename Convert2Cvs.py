@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'rbwtoy'
+category = 'titastar'
 db_table = category + '_product_scrapy'
 
 
@@ -67,10 +67,10 @@ try:
                 row['title'] = unquote(row['title'])
                 row['description'] = unquote(row['description'])
                 # row['price'] = row['price'].split(' ')[1]
-                row['price'] = row['price'][3:]
+                # row['price'] = row['price'][3:]
                 # row['price'] = row['price']
                 row['category'] = row['category']
-                row['sku'] = row['sku']
+                # row['sku'] = row['sku']
 
                 # 处理 images 字段
                 row["images"] = cleanUrls(row["images"])
