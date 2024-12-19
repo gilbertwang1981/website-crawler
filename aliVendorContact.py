@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 import aliVendorConfig
 import pymysql
 
-
 chrome_driver_instance = None
 
 
@@ -85,6 +84,18 @@ def createChromeDriver(cookieName):
         print(e.__str__())
 
 
+def scrollingPage():
+    c = 0
+    off = 2000
+    while c < 15:
+        off = off + c * 3000
+        chrome_driver_instance.execute_script("window.scrollBy(0," + str(off) + ")")
+
+        time.sleep(1)
+
+        c = c + 1
+
+
 def initProductIds(_userName, _categoryUrl, _categoryOne, _categoryThree):
     global chrome_driver_instance
     try:
@@ -94,15 +105,7 @@ def initProductIds(_userName, _categoryUrl, _categoryOne, _categoryThree):
 
         time.sleep(1)
 
-        c = 0
-        off = 2000
-        while c < 15:
-            off = off + c * 3000
-            chrome_driver_instance.execute_script("window.scrollBy(0," + str(off) + ")")
-
-            time.sleep(1)
-
-            c = c + 1
+        scrollingPage()
 
         offerIds = chrome_driver_instance.find_elements(By.XPATH, "//div[@class='list']/div")
 
@@ -166,10 +169,10 @@ def scrapVendorsByCategory(_categoryUrl, _userName, _productIds):
                 chrome_driver_instance.maximize_window()
 
                 phone = chrome_driver_instance.find_element(By.XPATH,
-                                            "//div[contains(text(), '手机：')]/following-sibling::*[position()=1]").text
+                                                            "//div[contains(text(), '手机：')]/following-sibling::*[position()=1]").text
 
                 company = chrome_driver_instance.find_element(By.XPATH,
-                                              "//div[text()='联系方式']/following-sibling::*[position()=1]").text
+                                                              "//div[text()='联系方式']/following-sibling::*[position()=1]").text
             except Exception as e:
                 i = i + 1
                 e.__str__()
@@ -220,4 +223,3 @@ if __name__ == '__main__':
         productIds.append(row[0])
 
     scrapVendorsByCategory(url, userName, productIds)
-

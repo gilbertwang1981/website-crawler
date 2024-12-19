@@ -73,20 +73,24 @@ def listCategories(scrapy):
         return []
 
 
-def scrapyProductDetail(_url, scrapy):
-    chrome_driver_instance.get(_url)
-
-    time.sleep(1)
-
+def scrollingPage():
     c = 0
-    off = 500
-    while c < 3:
-        off = off + c * 500
+    off = 2000
+    while c < 15:
+        off = off + c * 3000
         chrome_driver_instance.execute_script("window.scrollBy(0," + str(off) + ")")
 
         time.sleep(1)
 
         c = c + 1
+
+
+def scrapyProductDetail(_url, scrapy):
+    chrome_driver_instance.get(_url)
+
+    time.sleep(1)
+
+    scrollingPage()
 
     detail = scrapy.getProductDetail()
 
