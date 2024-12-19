@@ -78,6 +78,16 @@ def scrapyProductDetail(_url, scrapy):
 
     time.sleep(1)
 
+    c = 0
+    off = 500
+    while c < 3:
+        off = off + c * 500
+        chrome_driver_instance.execute_script("window.scrollBy(0," + str(off) + ")")
+
+        time.sleep(1)
+
+        c = c + 1
+
     detail = scrapy.getProductDetail()
 
     title = detail['title']
@@ -87,7 +97,7 @@ def scrapyProductDetail(_url, scrapy):
     category = CommonScrapyConfig.commonScrapyConfig['scrapy']['category']
     sku = detail['sku']
 
-    if not title or not imageUrl:
+    if not title:
         print("关键字段(标题)为空不插入，可能正在被风控。")
     else:
         insert(category, title, imageUrl, description, price, sku)

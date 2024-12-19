@@ -1,3 +1,5 @@
+import time
+
 import CommonScrapyProductService
 from CommonScrapy import CommonScrapy
 from selenium.webdriver.common.by import By
@@ -5,65 +7,72 @@ from selenium.webdriver.common.by import By
 
 class AtcacarScrapy(CommonScrapy):
 
+    def __init__(self):
+        self.titles = []
+        self.index = 0
+
     def getProductListByCategories(self):
-        categories = CommonScrapyProductService.chrome_driver_instance.find_elements(By.XPATH,
-                                                                                     "//ul[@class='product-categories"
-                                                                                     "']/li/a")
-        urls = []
-        for category in categories:
-            urls.append(category.get_attribute('href'))
+        urls = [
+            'https://shop.atcacar.com/product-category/automotive-accessories/'
+            'https://shop.atcacar.com/product-category/camping-outdoor-and-tools/',
+            'https://shop.atcacar.com/product-category/consumer-electronics-accessories/'
+        ]
 
         return urls
 
     def getProductDetailByList(self):
-        details = CommonScrapyProductService.chrome_driver_instance.find_elements(By.XPATH, "//div[contains(@class, "
-                                                                                            "'porto-tb-item')] "
-                                                                                            "//div[contains(@class, "
-                                                                                            "'product-list-content')]/a")
+        time.sleep(5)
+
+        self.titles = []
+        self.index = 0
+
+        details = CommonScrapyProductService. \
+            chrome_driver_instance.find_elements(By.XPATH, "//div[contains(@class, 'product-list-content')]"
+                                                           "/h3"
+                                                           "/a")
+
         urls = []
+        i = 0
         for detail in details:
             urls.append(detail.get_attribute('href'))
+
+            if detail.text:
+                i = i + 1
+                self.titles.append(detail.text)
 
         return urls
 
     def getProductDetail(self):
-        title = ''
+        imageUrls = []
         try:
-            title = CommonScrapyProductService.chrome_driver_instance.find_element(By.XPATH,
-                                                                                   "//h2[contains(@class, "
-                                                                                   "'product_title')]").text
+            images = CommonScrapyProductService. \
+                chrome_driver_instance.find_elements(By.XPATH, "//div[contains(@class, 'product-thumbnails')]"
+                                                               "//div[@class='img-thumbnail']"
+                                                               "/img")
+            for image in images:
+                imageUrls.append(image.get_attribute('src').split("?")[0])
         except Exception as e:
             print(e.__str__())
 
         description = ''
         try:
-            description = CommonScrapyProductService.chrome_driver_instance.find_element(By.XPATH,
-                                                                                         "//div[@id='tab-description']").text
+            description = CommonScrapyProductService.chrome_driver_instance. \
+                find_element(By.XPATH,
+                             "//div[@id='tab-description']").text
         except Exception as e:
             print(e.__str__())
 
-        imageUrls = []
-        try:
-            images = CommonScrapyProductService.chrome_driver_instance.find_elements(By.XPATH,
-                                                                                     "//div[contains(@class, "
-                                                                                     "'product-image-slider')] "
-                                                                                     "//div[@class='img-thumbnail']"
-                                                                                     "//img")
-            for image in images:
-                img = image.get_attribute('src')
-                img = img[:img.find('?')]
-                imageUrls.append(img)
-
-        except Exception as e:
-            print(e.__str__())
-
-        return {
+        data = {
             'description': description,
-            'title': title,
+            'title': self.titles[self.index],
             'price': '',
             'image': ','.join(imageUrls),
             'sku': ''
         }
+
+        self.index = self.index + 1
+
+        return data
 
 
 if __name__ == '__main__':

@@ -1,9 +1,9 @@
 scrapy:
-  initUrl: 'https://www.titastar.com/'
-  category: 'titastar'
-  pageSize: 16
+  initUrl: 'https://shop.atcacar.com/'
+  category: 'atcacar'
+  pageSize: 36
   beginPage: 1
-  pageSchema: '?page='
+  pageSchema: 'page/'
   db:
     host: 192.168.8.12
     port: 13306
