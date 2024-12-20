@@ -1,8 +1,9 @@
 scrapy:
-  initUrl: 'https://shop.atcacar.com/'
-  category: 'atcacar'
-  pageSize: 36
+  initUrl: 'https://stargoldworld.com/shop/'
+  category: 'stargoldworld'
+  pageSize: 12
   beginPage: 1
+  scrolling: 0
   pageSchema: 'page/'
   db:
     host: 192.168.8.12

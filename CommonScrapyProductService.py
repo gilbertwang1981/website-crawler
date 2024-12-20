@@ -74,6 +74,10 @@ def listCategories(scrapy):
 
 
 def scrollingPage():
+    enable = CommonScrapyConfig.commonScrapyConfig['scrapy']['scrolling']
+    if enable == 0:
+        return
+
     c = 0
     off = 2000
     while c < 15:
