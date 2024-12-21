@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'https://stargoldworld.com/shop/'
-  category: 'stargoldworld'
-  pageSize: 12
+  initUrl: 'https://citylineuae.com/products/'
+  category: 'citylineuae'
+  pageSize: 100
   beginPage: 1
   scrolling: 0
   pageSchema: 'page/'
