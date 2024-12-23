@@ -1,9 +1,12 @@
 scrapy:
-  initUrl: 'https://lutfitrading.com/collections'
-  category: 'lutfitrading'
-  pageSize: 24
+  initUrl: 'https://www.mebashi.com/products'
+  category: 'mebashi'
+  pageSize: 1000
   beginPage: 1
-  scrolling: 0
+  scrolling: 1
+  scrollingTimes: 40
+  scrollingOffset: 2000
+  scrollingDuration: 5
   pageSchema: '?page='
   db:
     host: 192.168.8.12

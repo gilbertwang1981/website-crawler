@@ -79,12 +79,14 @@ def scrollingPage():
         return
 
     c = 0
-    off = 2000
-    while c < 15:
+    off = CommonScrapyConfig.commonScrapyConfig['scrapy']['scrollingOffset']
+    totalTimes = CommonScrapyConfig.commonScrapyConfig['scrapy']['scrollingTimes']
+    duration = CommonScrapyConfig.commonScrapyConfig['scrapy']['scrollingDuration']
+    while c < totalTimes:
         off = off + c * 3000
         chrome_driver_instance.execute_script("window.scrollBy(0," + str(off) + ")")
 
-        time.sleep(1)
+        time.sleep(duration)
 
         c = c + 1
 
@@ -93,8 +95,6 @@ def scrapyProductDetail(_url, scrapy):
     chrome_driver_instance.get(_url)
 
     time.sleep(1)
-
-    scrollingPage()
 
     detail = scrapy.getProductDetail()
 
@@ -121,6 +121,8 @@ def traverseProductList(url, scrapy, page, pageSize):
     chrome_driver_instance.get(targetUrl)
 
     time.sleep(1)
+
+    scrollingPage()
 
     _urls = scrapy.getProductDetailByList()
 
