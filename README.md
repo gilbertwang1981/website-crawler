@@ -31,6 +31,7 @@
  | 19    | https://atcacar.com/ |
  | 20    | https://stargoldworld.com/ |
  | 21    | https://citylineuae.com/ |
+ | 22    | https://nddauto.com/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
