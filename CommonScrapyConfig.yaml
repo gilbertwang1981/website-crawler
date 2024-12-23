@@ -4,8 +4,8 @@ scrapy:
   pageSize: 1000
   beginPage: 1
   scrolling: 1
-  scrollingTimes: 40
-  scrollingOffset: 2000
+  scrollingTimes: 50
+  scrollingOffset: 2500
   scrollingDuration: 5
   pageSchema: '?page='
   db:

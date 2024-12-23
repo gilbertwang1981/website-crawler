@@ -61,7 +61,7 @@ class MebashiScrapy(CommonScrapy):
 
             for image in images:
                 img = image.get_attribute('href')
-                if "javascript" not in img and ".png" in img:
+                if "javascript" not in img:
                     imageUrls.append(img)
         except Exception as e:
             e.__str__()
