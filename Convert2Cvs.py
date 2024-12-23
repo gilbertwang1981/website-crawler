@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'citylineuae'
+category = 'nddauto'
 db_table = category + '_product_scrapy'
 
 
@@ -66,7 +66,10 @@ try:
                 # URL 解码 title 和 description
                 row['title'] = unquote(row['title'])
                 row['description'] = unquote(row['description'])
-                # row['price'] = row['price'].split(' ')[1]
+                if row['price']:
+                    row['price'] = row['price'].split(' ')[0]
+                else:
+                    row['price'] = ''
                 # row['price'] = row['price'][3:]
                 # row['price'] = row['price']
                 row['category'] = row['category']

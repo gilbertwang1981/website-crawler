@@ -1,10 +1,10 @@
 scrapy:
-  initUrl: 'https://nddauto.com/shop/'
-  category: 'nddauto'
-  pageSize: 12
+  initUrl: 'https://lutfitrading.com/collections'
+  category: 'lutfitrading'
+  pageSize: 24
   beginPage: 1
   scrolling: 0
-  pageSchema: 'page/'
+  pageSchema: '?page='
   db:
     host: 192.168.8.12
     port: 13306
