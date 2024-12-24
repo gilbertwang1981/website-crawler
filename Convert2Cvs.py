@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'mebashi'
+category = 'gracekitchenequip'
 db_table = category + '_product_scrapy'
 
 

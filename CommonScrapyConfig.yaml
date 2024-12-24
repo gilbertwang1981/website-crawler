@@ -1,9 +1,9 @@
 scrapy:
-  initUrl: 'https://www.mebashi.com/products'
-  category: 'mebashi'
+  initUrl: 'https://www.gracekitchenequip.com/products/'
+  category: 'gracekitchenequip'
   pageSize: 1000
   beginPage: 1
-  scrolling: 1
+  scrolling: 0
   scrollingTimes: 50
   scrollingOffset: 2500
   scrollingDuration: 5
