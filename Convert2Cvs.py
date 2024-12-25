@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'murexgeneraltrading'
+category = 'marooffc'
 db_table = category + '_product_scrapy'
 
 
@@ -72,7 +72,7 @@ try:
                 #     row['price'] = ''
                 row['category'] = row['category']
                 # row['sku'] = row['sku']
-                row['price'] = row['price']
+                # row['price'] = row['price']
 
                 # 处理 images 字段
                 row["images"] = cleanUrls(row["images"])

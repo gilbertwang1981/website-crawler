@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'https://murexgeneraltrading.com/stationery-catalog/'
-  category: 'murexgeneraltrading'
-  pageSize: 16
+  initUrl: 'https://marooffc.com/shop/'
+  category: 'marooffc'
+  pageSize: 12
   beginPage: 1
   scrolling: 0
   scrollingTimes: 50
