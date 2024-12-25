@@ -37,6 +37,7 @@
  | 25     | https://www.gracekitchenequip.com/ |
  | 26     | https://www.farookonline.com/ |
  | 27     | https://murexgeneraltrading.com/ |
+ | 28     | http://www.copexsolar.com/  | 
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 
