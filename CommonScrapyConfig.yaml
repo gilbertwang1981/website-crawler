@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'http://www.copexsolar.com/our-products/'
-  category: 'copexsolar'
-  pageSize: 10
+  initUrl: 'http://www.nicewaylighting.com/products.php'
+  category: 'nicewaylighting'
+  pageSize: 1000
   beginPage: 1
   scrolling: 0
   scrollingTimes: 50
