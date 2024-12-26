@@ -39,6 +39,7 @@
  | 27    | https://murexgeneraltrading.com/ |
  | 28    | http://www.copexsolar.com/  | 
  | 29    | http://www.nicewaylighting.com/products.php |
+ | 30    | http://www.platoled.com/ |
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 

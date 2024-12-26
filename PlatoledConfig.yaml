@@ -1,0 +1,9 @@
+platoled:
+  initUrl: 'http://www.platoled.com/index.html'
+  category: 'platoled'
+  db:
+    host: 192.168.8.12
+    port: 13306
+    user: root
+    pass: KPqazxsw
+    dbName: kp_sk_sync
