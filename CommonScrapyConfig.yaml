@@ -1,6 +1,6 @@
 scrapy:
-  initUrl: 'http://www.shannylighting.com/'
-  category: 'shannylighting'
+  initUrl: 'https://www.ghstorchlight.com/'
+  category: 'ghstorchlight'
   pageSize: 16
   beginPage: 1
   scrolling: 0
