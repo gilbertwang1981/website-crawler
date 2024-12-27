@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'platoled'
+category = 'shannylighting'
 db_table = category + '_product_scrapy'
 
 

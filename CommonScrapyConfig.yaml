@@ -1,13 +1,13 @@
 scrapy:
-  initUrl: 'http://www.nicewaylighting.com/products.php'
-  category: 'nicewaylighting'
-  pageSize: 1000
+  initUrl: 'http://www.shannylighting.com/'
+  category: 'shannylighting'
+  pageSize: 16
   beginPage: 1
   scrolling: 0
   scrollingTimes: 50
   scrollingOffset: 2500
   scrollingDuration: 5
-  pageSchema: 'page/'
+  pageSchema: '?page='
   db:
     host: 192.168.8.12
     port: 13306
