@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'marjanalsahra'
+category = 'sanfordjapan'
 db_table = category + '_product_scrapy'
 
 
@@ -65,7 +65,7 @@ try:
             for row in result:
                 # URL 解码 title 和 description
                 row['title'] = unquote(row['title'])
-                # row['description'] = unquote(row['description'])
+                row['description'] = unquote(row['description'])
                 # if row['price']:
                 #     row['price'] = row['price'].split('\n')[1].split('.')[1]
                 # else:
