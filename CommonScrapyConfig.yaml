@@ -1,5 +1,5 @@
 scrapy:
-  initUrl: 'https://www.marjanalsahra.com/index.html'
+  initUrl: 'https://www.marjanalsahra.com/'
   category: 'marjanalsahra'
   pageSize: 12
   beginPage: 1
@@ -8,6 +8,10 @@ scrapy:
   scrollingOffset: 2500
   scrollingDuration: 5
   pageSchema: '?page='
+  loadingCookie: 0
+  cookieDirectory: '/Users/gilbert/instagram/'
+  userName: 'wanghan52@126.com'
+  loadingCookieUrl: 'https://www.instagram.com/'
   db:
     host: 192.168.8.12
     port: 13306

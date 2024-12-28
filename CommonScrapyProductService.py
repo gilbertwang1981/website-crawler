@@ -1,5 +1,5 @@
 import time
-
+import json
 import pymysql
 from selenium import webdriver
 from urllib.parse import quote
@@ -20,6 +20,31 @@ def getDatabaseConnection():
     return mysqlConnection
 
 
+def getCookie(_userName):
+    cookie = open(CommonScrapyConfig.commonScrapyConfig['scrapy']['cookieDirectory'] + str(_userName) + ".cookie", 'r')
+    cookie_str = cookie.read()
+    cookie.close()
+
+    return cookie_str
+
+
+def loadingCookie(cookieName):
+    chrome_driver_instance.delete_all_cookies()
+
+    cookie_str = getCookie(cookieName)
+    if cookie_str is None:
+        print("加载cookie失败," + cookieName)
+
+        return
+
+    cookies = json.loads(cookie_str)
+
+    for c in cookies:
+        chrome_driver_instance.add_cookie(c)
+
+    chrome_driver_instance.refresh()
+
+
 def getProductListPageSize():
     return CommonScrapyConfig.commonScrapyConfig['scrapy']['pageSize']
 
@@ -32,7 +57,8 @@ def insert(_category, _title, _image, _description, _price, _sku):
 
         _cursor.execute("insert into common_product_scrapy(title, images, category, description, price, sku) "
                         "values ('" + quote(_title) + "', '"
-                        + _image + "', '" + _category + "', '" + quote(_description) + "', '" + _price + "', '" + _sku + "')")
+                        + _image + "', '" + _category + "', '" + quote(_description) +
+                        "', '" + _price + "', '" + _sku + "')")
 
         _connection.commit()
 
@@ -55,6 +81,16 @@ def createChromeDriver():
 
     try:
         chrome_driver_instance = webdriver.Chrome()
+
+        loadingC = CommonScrapyConfig.commonScrapyConfig['scrapy']['loadingCookie']
+        if loadingC == 1:
+            chrome_driver_instance.get(CommonScrapyConfig.commonScrapyConfig['scrapy']['loadingCookieUrl'])
+
+            time.sleep(1)
+
+            userName = CommonScrapyConfig.commonScrapyConfig['scrapy']['userName']
+
+            loadingCookie(userName)
     except Exception as e:
         print(e.__str__())
 
