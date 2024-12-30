@@ -44,6 +44,7 @@
  | 32     | https://www.ghstorchlight.com/ | 
  | 33     | https://www.marjanalsahra.com/ |
  | 34     | http://sanfordworld.com/ |
+ | 35     | https://www.dolphinstationery.com/ | 
 
 ##### 5. 实现爬取1688指定类目商品的供应商联系电话；
 

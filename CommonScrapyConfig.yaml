@@ -1,7 +1,7 @@
 scrapy:
-  initUrl: 'https://www.marjanalsahra.com/'
-  category: 'marjanalsahra'
-  pageSize: 12
+  initUrl: 'https://www.dolphinstationery.com/en/categories/school-products/playing-doughs/73/playing-doughs.html'
+  category: 'dolphinstationery'
+  pageSize: 100
   beginPage: 1
   scrolling: 0
   scrollingTimes: 50
