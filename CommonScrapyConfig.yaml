@@ -1,13 +1,13 @@
 scrapy:
-  initUrl: 'https://www.dolphinstationery.com/en/categories/school-products/playing-doughs/73/playing-doughs.html'
-  category: 'dolphinstationery'
-  pageSize: 100
+  initUrl: 'http://www.mktgroup.ae/'
+  category: 'mktgroup'
+  pageSize: 128
   beginPage: 1
-  scrolling: 0
-  scrollingTimes: 50
-  scrollingOffset: 2500
-  scrollingDuration: 5
-  pageSchema: '?page='
+  scrolling: 1
+  scrollingTimes: 5
+  scrollingOffset: 100
+  scrollingDuration: 1
+  pageSchema: '&page='
   loadingCookie: 0
   cookieDirectory: '/Users/gilbert/instagram/'
   userName: 'wanghan52@126.com'

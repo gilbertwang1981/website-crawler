@@ -119,7 +119,7 @@ def scrollingPage():
     totalTimes = CommonScrapyConfig.commonScrapyConfig['scrapy']['scrollingTimes']
     duration = CommonScrapyConfig.commonScrapyConfig['scrapy']['scrollingDuration']
     while c < totalTimes:
-        off = off + c * 3000
+        off = off + c * 100
         chrome_driver_instance.execute_script("window.scrollBy(0," + str(off) + ")")
 
         time.sleep(duration)

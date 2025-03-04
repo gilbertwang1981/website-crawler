@@ -1,0 +1,9 @@
+tiktok:
+  loadingCookie: 1
+  loadingCookieUrl: 'https://www.tiktok.com/'
+  cookieDirectory: '/Users/gilbert/tiktok/'
+  userName: 'gilbertw1981'
+  scrolling: 1
+  scrollingTimes: 15
+  scrollingOffset: 100
+  scrollingDuration: 1

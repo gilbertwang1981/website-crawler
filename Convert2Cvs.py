@@ -8,7 +8,7 @@ db_user = 'root'
 db_password = 'KPqazxsw'
 db_name = 'kp_sk_sync'
 
-category = 'sanfordjapan'
+category = 'mktgroup'
 db_table = category + '_product_scrapy'
 
 
@@ -67,12 +67,13 @@ try:
                 row['title'] = unquote(row['title'])
                 row['description'] = unquote(row['description'])
                 # if row['price']:
-                #     row['price'] = row['price'].split('\n')[1].split('.')[1]
+                #     row['price'] = row['price'][3:]
                 # else:
                 #     row['price'] = ''
                 row['category'] = row['category']
                 # row['sku'] = row['sku']
                 # row['price'] = row['price']
+                # row['price'] = row['price'][len("AED"):]
 
                 # 处理 images 字段
                 row["images"] = cleanUrls(row["images"])
